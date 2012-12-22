@@ -246,7 +246,7 @@ module Devise
       end
 
       def expire_session_data_after_sign_in!
-        session.keys.grep(/^devise\./).each { |k| session.delete(k) }
+        session.to_hash.keys.grep(/^devise\./).each { |k| session.delete(k) }
       end
 
       # Sign out a user and tries to redirect to the url specified by
